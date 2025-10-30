@@ -1,0 +1,114 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header__left-section {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.header__heading {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  order: 2;
+  margin: 0;
+}
+
+.header__icons {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  order: 3;
+}
+
+.header__left-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header__menu-link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.header__menu-link:hover {
+  color: rgb(var(--color-foreground));
+  opacity: 0.8;
+}
+
+.header__login-text {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.header__icon--account {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header__icon--account .svg-wrapper {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__icon--account svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.header__heading-link .h2 {
+  font-weight: 700;
+  color: #000;
+  font-size: 30px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.header__icons .desktop-localization-wrapper {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .header__menu-link {
+    display: none !important;
+  }
+
+  .header__login-text {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .header__heading-link .h2 {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header__menu-link {
+    display: block !important;
+  }
+
+  .header__icon--account .svg-wrapper {
+    display: none;
+  }
+
+  header-drawer {
+    display: none;
+  }
+}
