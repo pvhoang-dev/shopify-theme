@@ -130,8 +130,7 @@
         "in_cart_html": "Kosárban lévő mennyiség: <span class=\"quantity-cart\">{{ quantity }}</span>",
         "note": "Mennyiségi szabályok megtekintése",
         "min_of": "Min. {{ quantity }}",
-        "max_of": "Max. {{ quantity }}",
-        "in_cart_aria_label": "Mennyiség ({{ quantity }} a kosárban)"
+        "max_of": "Max. {{ quantity }}"
       },
       "price": {
         "from_price_html": "Legalacsonyabb ár: {{ price }}",
@@ -165,7 +164,6 @@
         "load_video": "{{ index }}. videó lejátszása galérianézetben",
         "image_available": "{{ index }}. kép betöltve galérianézetben"
       },
-      "nested_label": "{{ title }} – {{ parent_title }}",
       "view_full_details": "Minden részlet megtekintése",
       "shipping_policy_html": "A <a href=\"{{ link }}\">szállítási költséget</a> a megrendeléskor számítjuk ki.",
       "choose_options": "Válassz a lehetőségek közül",
@@ -183,8 +181,8 @@
         "title": "Mennyiségi árszabás",
         "note": "Mennyiségi árszabás rendelkezésre áll",
         "minimum": "{{ quantity }}+",
-        "price_range": "{{ minimum }} – {{ maximum }}",
-        "price_at_each_html": "{{ price }}/db"
+        "price_at_each": "{{ price }}/db",
+        "price_range": "{{ minimum }} – {{ maximum }}"
       },
       "taxes_included": "Tartalmazza az adókat.",
       "duties_included": "Tartalmazza a vámokat.",

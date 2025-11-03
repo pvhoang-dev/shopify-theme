@@ -8,9 +8,9 @@
  * ------------------------------------------------------------
  */
 {
-  "current": "Dawn",
+  "current": "Default",
   "presets": {
-    "Dawn": {
+    "Default": {
       "logo_width": 90,
       "color_schemes": {
         "scheme-1": {

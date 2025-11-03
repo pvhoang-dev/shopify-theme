@@ -130,8 +130,7 @@
         "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> trong giỏ hàng",
         "note": "Xem quy tắc số lượng",
         "min_of": "Tối thiểu {{ quantity }}",
-        "max_of": "Tối đa {{ quantity }}",
-        "in_cart_aria_label": "Số lượng ({{ quantity }} trong giỏ hàng)"
+        "max_of": "Tối đa {{ quantity }}"
       },
       "price": {
         "from_price_html": "Từ {{ price }}",
@@ -165,7 +164,6 @@
         "load_video": "Phát video {{ index }} trong chế độ xem thư viện",
         "image_available": "Hình ảnh {{ index }} hiện đã có trong chế độ xem thư viện"
       },
-      "nested_label": "{{ title }} cho {{ parent_title }}",
       "view_full_details": "Xem toàn bộ chi tiết",
       "shipping_policy_html": "<a href=\"{{ link }}\">Phí vận chuyển</a> được tính khi thanh toán.",
       "choose_options": "Chọn các tùy chọn",
@@ -183,8 +181,8 @@
         "title": "Định giá theo số lượng",
         "note": "Có sẵn định giá theo số lượng",
         "minimum": "Hơn {{ quantity }}",
-        "price_range": "{{ minimum }} - {{ maximum }}",
-        "price_at_each_html": "với giá {{ price }}/sản phẩm"
+        "price_at_each": "với giá {{ price }}/chiếc",
+        "price_range": "{{ minimum }} - {{ maximum }}"
       },
       "taxes_included": "Đã bao gồm thuế.",
       "duties_included": "Đã bao gồm thuế nhập khẩu.",

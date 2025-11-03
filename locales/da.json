@@ -129,8 +129,7 @@
         "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> i indkøbskurven",
         "note": "Se mængderegler",
         "min_of": "Min. {{ quantity }}",
-        "max_of": "Maks. {{ quantity }}",
-        "in_cart_aria_label": "Antal ({{ quantity }} i indkøbskurv)"
+        "max_of": "Maks. {{ quantity }}"
       },
       "price": {
         "from_price_html": "Fra {{ price }}",
@@ -164,7 +163,6 @@
         "load_video": "Afspil videoen {{ index }} i gallerivisning",
         "image_available": "Billedet {{ index }} er nu tilgængeligt i gallerivisning"
       },
-      "nested_label": "{{ title }} for {{ parent_title }}",
       "view_full_details": "Se komplette oplysninger",
       "shipping_policy_html": "<a href=\"{{ link }}\">Levering</a> beregnes ved betaling.",
       "choose_options": "Vælg muligheder",
@@ -182,8 +180,8 @@
         "title": "Mængderabat",
         "note": "Mængderabat tilgængelig",
         "minimum": "Mere end {{ quantity }}",
-        "price_range": "{{ minimum }} – {{ maximum }}",
-        "price_at_each_html": "til {{ price }} pr. stk."
+        "price_at_each": "til {{ price }}/stk",
+        "price_range": "{{ minimum }} – {{ maximum }}"
       },
       "product_variants": "Produktvarianter",
       "taxes_included": "Inklusive skatter.",

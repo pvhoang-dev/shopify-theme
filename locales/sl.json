@@ -139,8 +139,7 @@
         "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> v košarici",
         "note": "Prikaži pravila glede količine",
         "min_of": "Najmanj {{ quantity }}",
-        "max_of": "Največ {{ quantity }}",
-        "in_cart_aria_label": "Količina ({{ quantity }} v košarici)"
+        "max_of": "Največ {{ quantity }}"
       },
       "price": {
         "from_price_html": "Od {{ price }}",
@@ -167,7 +166,6 @@
         "load_video": "Predvajajte videoposnetek {{ index }} v pogledu galerije",
         "image_available": "Slika {{ index }} je zdaj na voljo v pogledu galerije"
       },
-      "nested_label": "{{ title }} za {{ parent_title }}",
       "view_full_details": "Prikaži vse podrobnosti",
       "shipping_policy_html": "<a href=\"{{ link }}\">Dostava</a> se obračuna ob zaključku nakupa.",
       "choose_options": "Izberite možnosti",
@@ -185,8 +183,8 @@
         "title": "Količinski popust",
         "note": "Na voljo je količinski popust",
         "minimum": "{{ quantity }} in več",
-        "price_range": "{{ minimum }}–{{ maximum }}",
-        "price_at_each_html": "po ceni {{ price }}/kos"
+        "price_at_each": "po ceni {{ price }}/kos",
+        "price_range": "{{ minimum }}–{{ maximum }}"
       },
       "taxes_included": "Davki vključeni.",
       "duties_included": "Dajatve vključene.",

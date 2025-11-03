@@ -129,8 +129,7 @@
         "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> i varukorg",
         "note": "Visa kvantitetsregler",
         "min_of": "Min. {{ quantity }}",
-        "max_of": "Max. {{ quantity }}",
-        "in_cart_aria_label": "Kvantitet ({{ quantity }} i varukorg)"
+        "max_of": "Max. {{ quantity }}"
       },
       "price": {
         "from_price_html": "Från {{ price }}",
@@ -164,7 +163,6 @@
         "load_video": "Spela videon {{ index }} i gallerivisning",
         "image_available": "Bilden {{ index }} är nu tillgänglig i gallerivisning"
       },
-      "nested_label": "{{ title }} för {{ parent_title }}",
       "view_full_details": "Visa alla uppgifter",
       "shipping_policy_html": "<a href=\"{{ link }}\">Frakt</a> beräknas i kassan.",
       "choose_options": "Välj alternativ",
@@ -182,8 +180,8 @@
         "title": "Volymprissättning",
         "note": "Volymprissättning är tillgängligt",
         "minimum": "Fler än {{ quantity }}",
-        "price_range": "{{ minimum }}–{{ maximum }}",
-        "price_at_each_html": "för {{ price }}/st"
+        "price_at_each": "för {{ price }}/styck",
+        "price_range": "{{ minimum }}–{{ maximum }}"
       },
       "product_variants": "Produktvarianter",
       "taxes_included": "Skatter ingår.",

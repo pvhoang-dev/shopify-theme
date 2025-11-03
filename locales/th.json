@@ -129,8 +129,7 @@
         "in_cart_html": "จำนวน <span class=\"quantity-cart\">{{ quantity }}</span> ในตะกร้าสินค้า",
         "note": "ดูกฎเกี่ยวกับจำนวน",
         "min_of": "ต่ำสุด {{ quantity }} รายการ",
-        "max_of": "สูงสุด {{ quantity }} รายการ",
-        "in_cart_aria_label": "จำนวน ({{ quantity }} ชิ้นในตะกร้าสินค้า)"
+        "max_of": "สูงสุด {{ quantity }} รายการ"
       },
       "price": {
         "from_price_html": "จาก {{ price }}",
@@ -164,7 +163,6 @@
         "load_video": "เล่นวิดีโอ {{ index }} ในมุมมองแกลเลอรี",
         "image_available": "รูปภาพ {{ index }} พร้อมใช้งานในมุมมองแกลเลอรี"
       },
-      "nested_label": "{{ title }} สำหรับ {{ parent_title }}",
       "view_full_details": "ดูรายละเอียดทั้งหมด",
       "shipping_policy_html": "<a href=\"{{ link }}\">ค่าจัดส่ง</a>ที่คำนวณในขั้นตอนการชำระเงิน",
       "choose_options": "เลือกตัวเลือก",
@@ -182,8 +180,8 @@
         "title": "การกำหนดราคาตามปริมาณ",
         "note": "การกำหนดราคาตามปริมาณพร้อมใช้งาน",
         "minimum": "{{ quantity }}+",
-        "price_range": "{{ minimum }} - {{ maximum }}",
-        "price_at_each_html": "ราคา {{ price }}/หน่วย"
+        "price_at_each": "ที่ {{ price }}/หน่วย",
+        "price_range": "{{ minimum }} - {{ maximum }}"
       },
       "product_variants": "ตัวเลือกสินค้า",
       "taxes_included": "รวมภาษีแล้ว",
@@ -485,7 +483,7 @@
       "billing_address": "ที่อยู่สำหรับเรียกเก็บเงิน",
       "payment_status": "สถานะการชำระเงิน",
       "shipping_address": "ที่อยู่ที่จัดส่ง",
-      "fulfillment_status": "สถานะการจัดการคำสั่งซื้อ",
+      "fulfillment_status": "สถานะการจัดการ",
       "discount": "ส่วนลด",
       "shipping": "การจัดส่ง",
       "tax": "ภาษี",

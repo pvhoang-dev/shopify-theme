@@ -139,8 +139,7 @@
         "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> ks v košíku",
         "note": "Zobrazenie pravidiel týkajúcich sa množstva",
         "min_of": "Min. {{ quantity }}",
-        "max_of": "Max. {{ quantity }}",
-        "in_cart_aria_label": "Počet ({{ quantity }} v košíku)"
+        "max_of": "Max. {{ quantity }}"
       },
       "price": {
         "from_price_html": "Od {{ price }}",
@@ -167,7 +166,6 @@
         "load_video": "Prehrať video {{ index }} v zobrazení galérie",
         "image_available": "Obrázok {{ index }} je teraz dostupný v zobrazení galérie"
       },
-      "nested_label": "{{ title }} pre {{ parent_title }}",
       "view_full_details": "Zobraziť všetky podrobnosti",
       "shipping_policy_html": "<a href=\"{{ link }}\">Doprava</a> sa vypočíta pri platbe.",
       "choose_options": "Vybrať možnosti",
@@ -185,8 +183,8 @@
         "title": "Objemové ceny",
         "note": "Dostupné objemové ceny",
         "minimum": "{{ quantity }}+",
-        "price_range": "{{ minimum }} – {{ maximum }}",
-        "price_at_each_html": "{{ price }}/kus"
+        "price_at_each": "{{ price }}/kus",
+        "price_range": "{{ minimum }} – {{ maximum }}"
       },
       "taxes_included": "Vrátane daní.",
       "duties_included": "Vrátane ciel.",

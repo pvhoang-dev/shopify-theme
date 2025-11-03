@@ -129,8 +129,7 @@
         "in_cart_html": "Sepette: <span class=\"quantity-cart\">{{ quantity }}</span>",
         "note": "Adet kurallarını görüntüle",
         "min_of": "Minimum {{ quantity }}",
-        "max_of": "Maksimum {{ quantity }}",
-        "in_cart_aria_label": "Adet (sepetteki: {{ quantity }})"
+        "max_of": "Maksimum {{ quantity }}"
       },
       "price": {
         "from_price_html": "Başlangıç fiyatı: {{ price }}",
@@ -164,7 +163,6 @@
         "load_video": "Video {{ index }} galeri görüntüleyicide oynatın",
         "image_available": "Görsel {{ index }} artık galeri görüntüleyicide kullanılabilir"
       },
-      "nested_label": "{{ parent_title }} için {{ title }}",
       "view_full_details": "Tüm ayrıntıları görüntüle",
       "shipping_policy_html": "<a href=\"{{ link }}\">Kargo</a>, ödeme sayfasında hesaplanır.",
       "choose_options": "Seçenekleri belirle",
@@ -182,8 +180,8 @@
         "title": "Toplu Alım Bazlı Fiyatlandırma",
         "note": "Toplu alım bazlı fiyatlandırma kullanılabilir",
         "minimum": "{{ quantity }}+",
-        "price_range": "{{ minimum }} - {{ maximum }}",
-        "price_at_each_html": "{{ price }}/adet"
+        "price_at_each": "{{ price }}/adet",
+        "price_range": "{{ minimum }} - {{ maximum }}"
       },
       "product_variants": "Ürün varyasyonları",
       "taxes_included": "Vergiler dahil.",
