@@ -648,7 +648,6 @@
     align-items: center;
     cursor: pointer;
     list-style: none;
-    padding: 1.5rem 0;
   }
 
   .footer-block--menu .footer-block__summary::after {
