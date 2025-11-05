@@ -8,11 +8,9 @@
 .header__left-section {
   display: flex;
   align-items: center;
-  flex: 1;
 }
 
 .header__heading {
-  flex: 1;
   display: flex;
   justify-content: center;
   order: 2;
@@ -20,7 +18,6 @@
 }
 
 .header__icons {
-  flex: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;

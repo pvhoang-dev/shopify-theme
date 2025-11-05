@@ -495,7 +495,7 @@
 }
 
 .copyright__content {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 }
 
 .copyright__content a {
@@ -588,6 +588,7 @@
   margin: 0;
   line-height: 1;
   color: rgb(var(--color-foreground));
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 750px) {
