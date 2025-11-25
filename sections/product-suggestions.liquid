@@ -1,0 +1,427 @@
+{{ 'product-suggestions.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'product-suggestions.js' | asset_url }}" defer></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="product-suggestions section-{{ section.id }}-padding {% unless section.settings.full_width %}page-width{% endunless %}">
+    
+    <product-suggestions
+      data-section-id="{{ section.id }}"
+      data-product-id="{{ product.id }}">
+      
+      {%- if section.settings.heading != blank -%}
+        <div class="product-suggestions__header text-{{ section.settings.heading_alignment }}">
+          <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+        </div>
+      {%- endif -%}
+
+      <div class="suggestion-tabs">
+        {%- if section.settings.enable_related_tab -%}
+          <button 
+            id="btn-related-{{ section.id }}"
+            class="suggestion-tab-btn {% if section.settings.default_tab == 'related' %}active{% endif %}"
+            data-tab="related">
+            {{ section.settings.related_tab_label }}
+          </button>
+        {%- endif -%}
+        {%- if section.settings.enable_viewed_tab -%}
+          <button 
+            id="btn-viewed-{{ section.id }}"
+            class="suggestion-tab-btn {% if section.settings.default_tab == 'viewed' or section.settings.enable_related_tab == false %}active{% endif %}"
+            data-tab="viewed">
+            {{ section.settings.viewed_tab_label }}
+          </button>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.enable_related_tab -%}
+        <related-products
+          id="related-tab-{{ section.id }}"
+          data-section-id="{{ section.id }}"
+          data-product-id="{{ product.id }}"
+          data-max-products="{{ section.settings.products_to_show }}"
+          class="tab-content {% if section.settings.default_tab != 'related' %}hidden{% endif %}">
+        
+        <div id="related-products-{{ section.id }}">
+        {%- if section.settings.layout_mode == 'carousel' -%}
+          <div class="product-grid-wrapper carousel-wrapper">
+            <button class="carousel-btn carousel-prev" aria-label="Previous">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <div class="carousel-container">
+              <ul class="product-grid carousel">
+                {%- if recommendations.performed and recommendations.products_count > 0 -%}
+                  {%- for product in recommendations.products limit: section.settings.products_to_show -%}
+                    <li class="grid__item carousel__item">
+                      {%- render 'card-product',
+                        card_product: product,
+                        media_aspect_ratio: section.settings.image_ratio,
+                        show_secondary_image: section.settings.show_secondary_image,
+                        show_vendor: section.settings.show_vendor,
+                        show_rating: section.settings.show_rating
+                      -%}
+                    </li>
+                  {%- endfor -%}
+                {%- endif -%}
+              </ul>
+            </div>
+            
+            <button class="carousel-btn carousel-next" aria-label="Next">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        {%- else -%}
+          <ul class="product-grid grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
+            {%- if recommendations.performed and recommendations.products_count > 0 -%}
+              {%- for product in recommendations.products limit: section.settings.products_to_show -%}
+                <li class="grid__item">
+                  {%- render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating
+                  -%}
+                </li>
+              {%- endfor -%}
+            {%- endif -%}
+          </ul>
+        {%- endif -%}
+        </div>
+
+        <div class="no-results-fallback hidden">
+          <div class="no-results-message">
+            <h3>{{ section.settings.no_related_message }}</h3>
+            {%- if section.settings.fallback_link != blank -%}
+              <a href="{{ section.settings.fallback_link }}" class="explore-link">
+                {{ section.settings.fallback_button_text }}
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z"/>
+                </svg>
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      </related-products>
+      {%- endif -%}
+
+      {%- if section.settings.enable_viewed_tab -%}
+        <viewed-products
+          id="viewed-tab-{{ section.id }}"
+          data-section-id="{{ section.id }}"
+          data-product-id="{{ product.id }}"
+          data-max-products="{{ section.settings.products_to_show }}"
+          class="tab-content {% if section.settings.default_tab != 'viewed' and section.settings.enable_related_tab %}hidden{% endif %}">
+        
+        <div id="viewed-products-{{ section.id }}">
+        {%- if section.settings.layout_mode == 'carousel' -%}
+          <div class="product-grid-wrapper carousel-wrapper">
+            <button class="carousel-btn carousel-prev" aria-label="Previous">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <div class="carousel-container">
+              <ul class="product-grid carousel">
+                {%- if search.performed and search.results_count > 0 -%}
+                  {%- for product in search.results limit: section.settings.products_to_show -%}
+                    <li class="grid__item carousel__item">
+                      {%- render 'card-product',
+                        card_product: product,
+                        media_aspect_ratio: section.settings.image_ratio,
+                        show_secondary_image: section.settings.show_secondary_image,
+                        show_vendor: section.settings.show_vendor,
+                        show_rating: section.settings.show_rating
+                      -%}
+                    </li>
+                  {%- endfor -%}
+                {%- endif -%}
+              </ul>
+            </div>
+            
+            <button class="carousel-btn carousel-next" aria-label="Next">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        {%- else -%}
+          <ul class="product-grid grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
+            {%- if search.performed and search.results_count > 0 -%}
+              {%- for product in search.results limit: section.settings.products_to_show -%}
+                <li class="grid__item">
+                  {%- render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating
+                  -%}
+                </li>
+              {%- endfor -%}
+            {%- endif -%}
+          </ul>
+        {%- endif -%}
+        </div>
+
+        <div class="no-results-fallback hidden">
+          <div class="no-results-message">
+            <p>{{ section.settings.no_viewed_message }}</p>
+          </div>
+        </div>
+      </viewed-products>
+      {%- endif -%}
+
+    </product-suggestions>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Suggestions",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "You may also like"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "label": "Products to show"
+    },
+    {
+      "type": "select",
+      "id": "layout_mode",
+      "label": "Layout mode",
+      "options": [
+        { "value": "grid", "label": "Grid" },
+        { "value": "carousel", "label": "Carousel" }
+      ],
+      "default": "grid",
+      "info": "Choose between grid or carousel layout"
+    },
+    {
+      "type": "select",
+      "id": "default_tab",
+      "label": "Default active tab",
+      "options": [
+        { "value": "related", "label": "Related Products" },
+        { "value": "viewed", "label": "Recently Viewed" }
+      ],
+      "default": "related",
+      "info": "Which tab to show by default"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_related_tab",
+      "default": true,
+      "label": "Enable Related Products tab"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_viewed_tab",
+      "default": true,
+      "label": "Enable Recently Viewed tab"
+    },
+    {
+      "type": "text",
+      "id": "related_tab_label",
+      "label": "Related Products tab label",
+      "default": "Related Products",
+      "info": "Customize the tab button text"
+    },
+    {
+      "type": "text",
+      "id": "viewed_tab_label",
+      "label": "Recently Viewed tab label",
+      "default": "Recently Viewed",
+      "info": "Customize the tab button text"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "Columns (desktop)"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns (mobile)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "Full width"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "adapt"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "Show second image on hover"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "Show vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "Show product rating"
+    },
+    {
+      "type": "url",
+      "id": "fallback_link",
+      "label": "Fallback link (when no products)"
+    },
+    {
+      "type": "text",
+      "id": "fallback_button_text",
+      "label": "Fallback button text",
+      "default": "Explore Now",
+      "info": "Text for the fallback link button"
+    },
+    {
+      "type": "text",
+      "id": "no_related_message",
+      "label": "No related products message",
+      "default": "No products found",
+      "info": "Message when no related products are available"
+    },
+    {
+      "type": "text",
+      "id": "no_viewed_message",
+      "label": "No recently viewed message",
+      "default": "You haven't viewed any other products yet",
+      "info": "Message when no recently viewed products"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_add",
+      "default": false,
+      "label": "Enable quick add button",
+      "info": "Show quick add to cart button on product cards"
+    },
+    {
+      "type": "range",
+      "id": "carousel_speed",
+      "min": 200,
+      "max": 1000,
+      "step": 50,
+      "unit": "ms",
+      "label": "Carousel transition speed",
+      "default": 300,
+      "info": "Speed of carousel slide animation (only for carousel mode)"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Suggestions"
+    }
+  ]
+}
+{% endschema %}

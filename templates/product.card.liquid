@@ -1,0 +1,15 @@
+{% comment %}
+  Template for fetching product card via AJAX for Recently Viewed feature
+  Usage: /products/{handle}?view=card
+{% endcomment %}
+
+<div class="product-recommendations__item">
+  {% render 'card-product',
+    card_product: product,
+    media_aspect_ratio: 'adapt',
+    show_secondary_image: true,
+    show_vendor: false,
+    show_rating: false,
+    show_quick_add: true
+  %}
+</div>

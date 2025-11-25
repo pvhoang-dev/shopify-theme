@@ -82,27 +82,37 @@
         "padding_bottom": 12
       }
     },
-    "related-products": {
-      "type": "related-products",
+    "product-suggestions": {
+      "type": "product-suggestions",
       "settings": {
-        "heading": "You may also like",
+        "heading": "",
         "heading_size": "h2",
-        "products_to_show": 4,
+        "heading_alignment": "center",
+        "products_to_show": 12,
+        "layout_mode": "carousel",
+        "default_tab": "related",
+        "enable_related_tab": true,
+        "enable_viewed_tab": true,
+        "related_tab_label": "Related Products",
+        "viewed_tab_label": "Recently Viewed",
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
+        "columns_mobile": "2",
+        "full_width": false,
+        "image_ratio": "adapt",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "columns_mobile": "2",
+        "fallback_link": "",
+        "fallback_button_text": "Explore Now",
+        "no_related_message": "No products found",
+        "no_viewed_message": "You haven't viewed any other products yet",
+        "show_quick_add": false,
+        "carousel_speed": 200,
+        "color_scheme": "scheme-1",
         "padding_top": 36,
-        "padding_bottom": 28
+        "padding_bottom": 36
       }
     }
   },
-  "order": [
-    "main",
-    "related-products"
-  ]
+  "order": ["main", "product-suggestions"]
 }
