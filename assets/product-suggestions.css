@@ -1,0 +1,148 @@
+/* Product Suggestions - Related & Recently Viewed */
+
+.product-suggestions {
+  display: block;
+}
+
+.product-suggestions__header {
+  margin-bottom: 3rem;
+}
+
+.product-suggestions__wrapper {
+  width: 100%;
+  display: flex;
+  position: relative;
+  gap: 8px;
+}
+
+/* Tab Buttons */
+.suggestion-tabs {
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+
+.suggestion-tab-btn {
+  touch-action: manipulation;
+  background: rgb(var(--color-background));
+  align-items: center;
+  border: 1px solid rgba(var(--color-foreground), 0.2);
+  cursor: pointer;
+  display: inline-flex;
+  padding: 10px 16px;
+  color: rgb(var(--color-foreground));
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.suggestion-tab-btn.active,
+.suggestion-tab-btn:hover {
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border-color: rgb(var(--color-button));
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+}
+
+.tab-content:not(.hidden) {
+  display: block;
+}
+
+/* Empty State */
+.no-results-message {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.no-results-message h3 {
+  margin-bottom: 1rem;
+}
+
+.explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(var(--color-link));
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.explore-link:hover {
+  opacity: 0.7;
+}
+
+@media screen and (min-width: 768px) {
+  .product-suggestions__wrapper {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .suggestion-tab-btn {
+    font-size: 14px;
+  }
+}
+
+/* Carousel Layout */
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.carousel-container {
+  overflow: hidden;
+  flex: 1;
+}
+
+.product-grid.carousel {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel__item {
+  flex: 0 0 auto;
+}
+
+.carousel-btn {
+  background: rgb(var(--color-background));
+  border: 1px solid rgba(var(--color-foreground), 0.2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.carousel-btn:hover:not(:disabled) {
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border-color: rgb(var(--color-button));
+}
+
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.carousel-btn svg {
+  width: 24px;
+  height: 24px;
+}
